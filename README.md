@@ -52,9 +52,9 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 
 **Pages & Components:**  
 
--  `SearchBar`,  `MovieList`  
+- `SearchBar`,  `MovieList`  
 - `Home.jsx`, `MovieDetailDetails.jsx`
-- -  `SearchContext.jsx`, 
+- `SearchContext.jsx`, 
 
 ---
 
