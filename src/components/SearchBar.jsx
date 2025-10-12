@@ -10,9 +10,9 @@ const SearchBar = ({ onSearch }) => {
 
   // Handles when user submits the search
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the page from reloading
+    e.preventDefault(); 
     if (query.trim()) {
-      onSearch(query); // Sends the search term to the parent (Home.jsx)
+      onSearch(query); 
     }
   };
 

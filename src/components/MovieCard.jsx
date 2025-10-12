@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MovieCard = ({ movie, onSelect }) => {
-  // Some movies may not have a poster, so we use a placeholder
+
   const poster =
     movie.Poster && movie.Poster !== 'N/A'
       ? movie.Poster

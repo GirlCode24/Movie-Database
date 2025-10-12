@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getMovieDetails } from '../api/omdb';
 
 const MovieDetails = () => {
-  const { id } = useParams(); // get movie ID from URL
+  const { id } = useParams(); 
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
