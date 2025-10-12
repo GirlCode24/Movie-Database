@@ -1,0 +1,84 @@
+.home-container {
+  text-align: center;
+  padding: 2rem;
+  color: #fff;
+  background-color: #1e1e1e;
+  min-height: 100vh;
+}
+
+.title {
+  color: #4f8cff;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  padding: 0.8rem 1rem;
+  width: 300px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.search-bar button {
+  background-color: #4f8cff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #6fa3ff;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.movie-card {
+  background: #2b2b2b;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  background: #333;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.movie-card h3 {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.movie-card p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.no-movies {
+  color: #aaa;
+  margin-top: 2rem;
+}
