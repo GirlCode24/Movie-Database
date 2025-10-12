@@ -52,8 +52,8 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 
 **Pages & Components:**  
 
-- `NavBar`, `SearchBar`, `MovieCard`, `MovieDetails`  
-- `Home.jsx`, `MovieDetailPage.jsx`  
+- `NavBar`, `SearchBar`, `MovieCard`, `MovieList`  
+- `Home.jsx`, `MovieDetailDetails.jsx`  
 
 ---
 
