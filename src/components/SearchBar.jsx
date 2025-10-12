@@ -1,30 +1,34 @@
+import React, { useState } from "react";
 
-import React from "react";
+const SearchBar = ({ onSearch }) => {
+  const [term, setTerm] = useState("");
 
-const SearchBar = ({ searchTerm, setSearchTerm, onSearch }) => {
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      onSearch(searchTerm);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (term.trim()) {
+      onSearch(term);
     }
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <form
+      onSubmit={handleSubmit}
+      className="flex items-center bg-gray-50 rounded-lg shadow-inner p-2 border border-gray-200"
+    >
       <input
         type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Search for a movie..."
-        className="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="🔍 Search for a movie..."
+        value={term}
+        onChange={(e) => setTerm(e.target.value)}
+        className="flex-grow px-3 py-2 bg-transparent outline-none text-gray-700 placeholder-gray-400"
       />
       <button
-        onClick={() => onSearch(searchTerm)}
-        className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-r-lg hover:bg-blue-700 transition"
+        type="submit"
+        className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-200"
       >
         Search
       </button>
-    </div>
+    </form>
   );
 };
 
