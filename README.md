@@ -14,7 +14,7 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 **Features include:**
 
 - 🔍 **SearchBar**: The magic telescope 🔭 that finds any movie in the vast cinematic universe  
-- 🎞 **MovieCard**: The treasure chest 🎁 displaying posters, titles, and release years  
+- 🎞 **MovieList**: The treasure chest 🎁 displaying posters, titles, and release years  
 - 📝 **MovieDetails**: The wise storyteller 📖 revealing plots, casts, ratings, and genres  
 
 **Who’s it for?**  
@@ -52,8 +52,9 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 
 **Pages & Components:**  
 
-- `NavBar`, `SearchBar`, `MovieCard`, `MovieList`  
-- `Home.jsx`, `MovieDetailDetails.jsx`  
+- `SearchBar`,  `MovieList`  
+- `Home.jsx`, `MovieDetailDetails.jsx`
+- `SearchContext.jsx`, 
 
 ---
 
