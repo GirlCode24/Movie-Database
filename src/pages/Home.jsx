@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="title">🎬 Movie Database</h1>
+      <h1 className="title">🎬 Movie Explorer</h1>
 
       <div className="search-bar">
         <input
