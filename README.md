@@ -61,7 +61,7 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 ## 🖌️ Crafting Process
 
 - 🎨 **Figma Mockups** → Designed each realm and interface  
-- 🖱️ **Components Forged** → NavBar, SearchBar, MovieCard, MovieDetails  
+- 🖱️ **Components Forged** →  SearchBar, MovieList, MovieDetails  
 - ⚡ **API Integration** → Connected with OMDB Oracle to summon live movie data  
 - 📐 **Tailwind Magic** → Responsive layouts across desktop & mobile  
 - 🔄 **Testing & Polishing** → Ensured smooth questing experience  
@@ -111,4 +111,4 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 
 > 🎬 “Movies are meant to be explored, and coding is the map that gets you there.”  
 
-**GitHub:** [https://github.com/GirlCode24/Movie-Database](https://github.com/GirlCode24/Movie-Explorer)
+**GitHub:** [https://github.com/GirlCode24/Movie-Explorer](https://github.com/GirlCode24/Movie-Explorer)
