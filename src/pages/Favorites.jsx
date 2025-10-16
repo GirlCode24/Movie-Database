@@ -7,6 +7,12 @@ const Favorites = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Link
           to="/"
@@ -67,10 +73,10 @@ const Favorites = () => {
                 </Link>
                 <button
                   onClick={() => removeFavorite(movie.imdbID)}
-                  className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition-colors z-10"
+                  className="absolute top-2 right-2 bg-amber-500 hover:bg-amber-600 text-slate-900 p-2 rounded-full transition-colors z-10 font-bold"
                   title="Remove from favorites"
                 >
-                  ❌
+                  ✕
                 </button>
               </div>
             ))}
