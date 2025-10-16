@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Star, Calendar, Clock, Film, Users, Award } from "lucide-react";
+import { Star, Calendar, Clock, Film, Users, Award } from "lucide-react";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 const API_KEY = "9bcecba2";
 
@@ -9,6 +10,10 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  
+  // Favorites context
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
+  const isMovieFavorite = movie ? isFavorite(movie.imdbID) : false;
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -32,6 +37,19 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
 
+  const handleToggleFavorite = () => {
+    if (isMovieFavorite) {
+      removeFavorite(movie.imdbID);
+    } else {
+      addFavorite({
+        imdbID: movie.imdbID,
+        Title: movie.Title,
+        Year: movie.Year,
+        Poster: movie.Poster,
+      });
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
@@ -52,8 +70,7 @@ const MovieDetails = () => {
             to="/"
             className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors"
           >
-            <ArrowLeft size={20} />
-            Back to Search
+            ← Back to Search
           </Link>
         </div>
       </div>
@@ -64,7 +81,7 @@ const MovieDetails = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Hero Section with Backdrop Effect */}
+      {/* Hero Section */}
       <div className="relative">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10 blur-sm"
@@ -74,14 +91,35 @@ const MovieDetails = () => {
         />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Back Button */}
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-slate-300 hover:text-amber-400 transition-colors mb-8 group"
-          >
-            <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="text-lg">Back to Search</span>
-          </Link>
+          {/* Navigation Bar */}
+          <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-slate-300 hover:text-amber-400 transition-colors group"
+            >
+              <span className="group-hover:-translate-x-1 transition-transform">←</span>
+              <span className="text-lg">Back to Search</span>
+            </Link>
+
+            <div className="flex gap-3 flex-wrap">
+              <Link
+                to="/favorites"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-slate-700/50 hover:bg-slate-700 text-slate-300 rounded-lg transition-colors"
+              >
+                ❤️ Favorites
+              </Link>
+              <button
+                onClick={handleToggleFavorite}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-colors font-semibold ${
+                  isMovieFavorite
+                    ? "bg-red-500 hover:bg-red-600 text-white"
+                    : "bg-amber-500 hover:bg-amber-600 text-slate-900"
+                }`}
+              >
+                {isMovieFavorite ? "💔 Remove" : "❤️ Add to Favorites"}
+              </button>
+            </div>
+          </div>
 
           {/* Main Content */}
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-slate-700/50">
@@ -109,7 +147,7 @@ const MovieDetails = () => {
 
               {/* Details */}
               <div className="flex-1 space-y-6">
-                {/* Title and Year */}
+                {/* Title and Meta Info */}
                 <div>
                   <h1 className="text-4xl lg:text-5xl font-bold text-white mb-2 leading-tight">
                     {movie.Title}
@@ -222,7 +260,7 @@ const MovieDetails = () => {
                 {/* Box Office */}
                 {movie.BoxOffice && movie.BoxOffice !== "N/A" && (
                   <div className="bg-gradient-to-r from-amber-500/10 to-amber-600/10 rounded-lg p-4 border border-amber-500/30">
-                    <p className="text-amber-400 text-sm mb-1">Box Office</p>
+                    <p className="text-amber-400 text-sm mb-1">💰 Box Office</p>
                     <p className="text-white text-2xl font-bold">{movie.BoxOffice}</p>
                   </div>
                 )}

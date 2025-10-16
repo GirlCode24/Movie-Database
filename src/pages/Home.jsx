@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import MovieList from "../components/MovieList";
 import { SearchContext } from "../context/SearchContext";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 const API_KEY = "9bcecba2";
 
 const Home = () => {
   const { movies, setMovies, lastSearch, setLastSearch } = useContext(SearchContext);
+  const { favorites } = useContext(FavoritesContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -67,7 +69,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Animated background elements */}
+     
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -108,12 +110,28 @@ const Home = () => {
         {/* Movie Grid */}
         {!loading && !error && movies.length > 0 && (
           <div>
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-semibold text-white">
-                Search Results <span className="text-amber-400">({movies.length})</span>
-              </h2>
-              <p className="text-slate-400 text-sm">Showing results for "{lastSearch}"</p>
+            {/* Results Header with Favorites Button */}
+            <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
+              <div>
+                <h2 className="text-2xl font-semibold text-white">
+                  Search Results <span className="text-amber-400">({movies.length})</span>
+                </h2>
+                <p className="text-slate-400 text-sm mt-1">Showing results for "{lastSearch}"</p>
+              </div>
+              
+              <Link
+                to="/favorites"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500/20 to-amber-600/20 hover:from-amber-500/30 hover:to-amber-600/30 border border-amber-500/50 text-amber-300 hover:text-amber-200 rounded-lg transition-all font-semibold whitespace-nowrap"
+              >
+                ❤️ My Favorites
+                {favorites.length > 0 && (
+                  <span className="ml-1 px-3 py-1 bg-amber-500 text-slate-900 text-sm rounded-full font-bold">
+                    {favorites.length}
+                  </span>
+                )}
+              </Link>
             </div>
+
             <MovieList movies={movies} onSelect={handleSelectMovie} />
           </div>
         )}
