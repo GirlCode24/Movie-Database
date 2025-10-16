@@ -13,9 +13,10 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 
 **Features include:**
 
-- 🔍 **SearchBar**: The magic telescope 🔭 that finds any movie in the vast cinematic universe  
-- 🎞 **MovieList**: The treasure chest 🎁 displaying posters, titles, and release years  
-- 📝 **MovieDetails**: The wise storyteller 📖 revealing plots, casts, ratings, and genres  
+- 🔍 **SearchBar**: The magic telescope 🔭 that finds any movie in the vast cinematic universe. 
+- 🎞 **MovieList**: The treasure chest 🎁 displaying posters, titles, and release years.
+- 📝 **MovieDetails**: The wise storyteller 📖 revealing plots, casts, ratings, and genres.
+- 💖 **Favorites**: The secret vault 💎 where your beloved movies are kept safe for endless rewatching.
 
 **Who’s it for?**  
 
@@ -29,11 +30,11 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 
 - 🔍 **SearchBar** → Type a movie name, press Enter, and watch the magic unfold  
 - 🎞 **MovieCard** → Clickable portals to cinematic realms  
-- 📝 **MovieDetails** → Deep lore: plot, cast, ratings, genre, and more  
+- 📝 **MovieDetails** → Deep lore: plot, cast, ratings, genre, and more
+- ❤️ **Favorites** → Save your movie companions in a secret vault (localStorage)  
 
 **Optional Side Quests (Stretch Goals):**
 
-- ❤️ **Favorites** → Save your movie companions in a secret vault (localStorage)  
 - 📄 **Pagination** → Explore multiple realms/pages of movies  
 - 🔢 **Sorting & Filtering** → Organize adventures by year, genre, or rating  
 - 🎬 **Trailers** → Watch magical previews of your movie journeys  
@@ -53,8 +54,8 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 **Pages & Components:**  
 
 - `SearchBar`,  `MovieList`  
-- `Home.jsx`, `MovieDetailDetails.jsx`
-- `SearchContext.jsx`, 
+- `Home.jsx`, `MovieDetailDetails.jsx`, `Favorites.jsx`
+- `SearchContext.jsx`, `FavoritesContext.jsx`, 
 
 ---
 
@@ -97,7 +98,6 @@ Search for movies, dive into their stories, and uncover hidden cinematic treasur
 
 ## 🚀 Next Chapters
 
-- ❤️ Add Favorites vault with localStorage  
 - 🔢 Implement pagination & filters  
 - 🎬 Embed trailers to make stories come alive  
 - 🌙 Light/Dark mode toggle for immersive experience  
